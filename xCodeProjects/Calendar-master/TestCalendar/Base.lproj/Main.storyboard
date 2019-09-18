@@ -224,10 +224,10 @@
             </objects>
             <point key="canvasLocation" x="2852.1739130434785" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Date View Controller-->
         <scene sceneID="2FR-W5-uBx">
             <objects>
-                <viewController id="nbX-VJ-avb" sceneMemberID="viewController">
+                <viewController id="nbX-VJ-avb" customClass="DateViewController" customModule="TestCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UfA-vU-jSb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

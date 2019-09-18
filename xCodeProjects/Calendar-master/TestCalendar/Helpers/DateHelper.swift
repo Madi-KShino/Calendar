@@ -1,8 +1,8 @@
 //
-//  Dates.swift
+//  DateHelper.swift
 //  TestCalendar
 //
-//  Created by Madison Kaori Shino on 8/12/19.
+//  Created by Madison Kaori Shino on 9/18/19.
 //  Copyright © 2019 Madi S. All rights reserved.
 //
 
@@ -23,8 +23,6 @@ extension Date {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .none
-//        formatter.setLocalizedDateFormatFromTemplate("MMMMd")
-        
         return formatter.string(from: self)
     }
 }
