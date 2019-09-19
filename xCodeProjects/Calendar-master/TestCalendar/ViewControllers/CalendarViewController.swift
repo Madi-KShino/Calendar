@@ -23,6 +23,7 @@ class CalendarViewController: UIViewController {
     var direction = 0 //(0 current, -1 past, 1 future)
     var positionIndex = 0
     var leapYearCounter = 3 //two years away from current date
+    var selectedDate: Date?
 
     //Outlets
     @IBOutlet weak var previousButton: UIButton!
@@ -191,7 +192,49 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         }
         return cell
     }
-    
-    
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          if segue.identifier == "toDateDetailVC" {
+               guard let cell = sender as? DateCollectionViewCell,
+                    let indexPath = calendarCollectionView.indexPath(for: cell),
+                    let day = cell.dateLabel.text else { return }
+               let dayValue = Int(day)
+               let monthValue = month
+               let yearValue = year
+               var weekValue = Int()
+               switch indexPath.row {
+               case 0, 7, 14, 21, 28 :
+                    weekValue = 1
+               case 1, 8, 15, 22, 29 :
+                    weekValue = 2
+               case 2, 9, 16, 23, 30 :
+                    weekValue = 3
+               case 3, 10, 17, 24, 31 :
+                    weekValue = 4
+               case 4, 11, 18, 25 :
+                    weekValue = 5
+               case 5, 12, 19, 26 :
+                    weekValue = 6
+               case 6, 13, 20, 27 :
+                    weekValue = 7
+               default :
+                    break
+               }
+               
+               let date = "\(weekValue), \(monthValue), \(dayValue ?? 1), \(yearValue)"
+               let dateFormatter = DateFormatter()
+               dateFormatter.dateFormat = "e, MM, dd, yyyy"
+               guard let newdate = dateFormatter.date(from: date) else { return }
+               let calendar = Calendar.current
+               let components = calendar.dateComponents([.year, .month, .day, .weekday], from: newdate)
+               let finalDate = calendar.date(from: components)
+               self.selectedDate = finalDate
+               print("Selected Date:", finalDate ?? "Oops")
+               
+               guard let destination = segue.destination as? DateViewController else { return }
+               destination.date = self.selectedDate
+          }
+     }
 }
+
 

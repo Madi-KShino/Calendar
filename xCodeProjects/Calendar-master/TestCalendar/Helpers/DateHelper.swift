@@ -19,10 +19,15 @@ var year = calendar.component(.year, from: date)
 extension Date {
     
     func formatDate() -> String {
-        
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .none
         return formatter.string(from: self)
+    }
+    
+    func prettyDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM dd, yyyy"
+        return dateFormatter.string(from: self)
     }
 }

@@ -177,7 +177,7 @@
                                             <outlet property="cycleIndicator" destination="bRD-ti-o5t" id="Ur7-Gd-YX7"/>
                                             <outlet property="dateLabel" destination="lbm-fI-Esy" id="kuc-sl-PL0"/>
                                             <outlet property="symptomsIndicator" destination="2a7-oz-Z9h" id="KzR-YO-H4d"/>
-                                            <segue destination="nbX-VJ-avb" kind="show" id="cUb-bI-UT1"/>
+                                            <segue destination="nbX-VJ-avb" kind="show" identifier="toDateDetailVC" id="cUb-bI-UT1"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -232,7 +232,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zri-5R-2cQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zri-5R-2cQ">
                                 <rect key="frame" x="41.5" y="243" width="331" height="179"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="0.23110195489999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -248,10 +248,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gvJ-OP-568"/>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="Zri-5R-2cQ" id="6xs-Gc-sVs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lG-JY-Svj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3728.985507246377" y="137.94642857142856"/>
+            <point key="canvasLocation" x="3741" y="138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdy-Es-GQD">
